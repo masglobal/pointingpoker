@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello World</title>
+    <script src="../lib/VSS.SDK.min.js"></script>
+</head>
+<body>
+    <h1>Hello World V1</h1>
+    
+ <script type="text/javascript">
+    
+      // Initialize the VSS sdk
+      VSS.init({
+          usePlatformScripts: true,
+          usePlatformStyles: true
+      });
+    
+      VSS.require(["dist/app"], function (app) { 
+          
+      });
+    
+     </script>
+    
+</body>
+</html>
