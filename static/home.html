@@ -9,15 +9,34 @@
     
  <script type="text/javascript">
     
-      // Initialize the VSS sdk
-      VSS.init({
-          usePlatformScripts: true,
-          usePlatformStyles: true
-      });
-    
-      VSS.require(["dist/app"], function (app) { 
-          
-      });
+        // Initialize the VSS sdk
+        VSS.init({
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+
+        VSS.require(["dist/app"], function (app) { 
+            
+        });
+
+        //Get TFS context
+        var context = VSS.getWebContext();
+
+        //Current project and user info
+        var currentProjectName = context.project.name;
+        var currentUserName = context.user.name;s
+
+        //Get all projects
+        VSS.require(["VSS/Service", "TFS/Core/RestClient"], function (VSS_Service, TFS_Core_WebApi) {
+            // Get the REST client
+            var coreClient = VSS_Service.getCollectionClient(TFS_Core_WebApi.CoreHttpClient2_2);
+            coreClient.getProjects().then(
+                function(projects){
+                    debugger;
+                    var x =  projects;
+                }
+            );
+        });
     
      </script>
     
